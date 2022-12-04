@@ -1,0 +1,28 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    height: auto;
+    max-width: 900px;
+}
+
+.sizing {
+    width: 600px;
+    height: fit-content;
+}
+
+.col-md-4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-fluid {
+    max-width: 400px;
+    position: relative;
+    left: -85px;
+}
