@@ -83,6 +83,16 @@ function init() {
     showtotalQuestions()
     showQuestion()
     showQuestionNumber()
+    progressBar()
+    hideStartingPage()
+}
+
+function hideStartingPage() {
+    document.getElementById('startingPage').style.display = ('none')
+    document.getElementById('card').style.display = ('flex')
+}
+
+function progressBar() {
     document.getElementById('progressBar').style.width = ('0%')
 }
 
@@ -116,9 +126,9 @@ function showEndScreen() {
 function showQuestionScreen() {
     let question = questions[currentQuestion];
     document.getElementById('questiontext').innerHTML = question['question']
-    document.getElementById('answer_1').innerHTML = ` <div class="abcd">A</div>` + question['answer_1']
-    document.getElementById('answer_2').innerHTML = ` <div class="abcd">B</div>` + question['answer_2']
-    document.getElementById('answer_3').innerHTML = ` <div class="abcd">C</div>` + question['answer_3']
+    document.getElementById('answer_1').innerHTML = ` <div class="abcd">A</div>` + `<span>` + question['answer_1'] + `</span>`
+    document.getElementById('answer_2').innerHTML = ` <div class="abcd">B</div>` + `<span>` + question['answer_2'] + `</span>`
+    document.getElementById('answer_3').innerHTML = ` <div class="abcd">C</div>` + `<span>` + question['answer_3'] + `</span>`
 }
 
 function answer(selection) {
@@ -131,7 +141,7 @@ function answer(selection) {
     } else {
         wrongAnswer(selection, idOfRightAnswer)
     }
-    
+
     document.getElementById('nextButton').disabled = false;
 }
 
@@ -161,7 +171,7 @@ function nextQuestion() {
     document.getElementById('nextButton').disabled = true;
     resetAnswerButtons();
     showQuestion();
-    showQuestionNumber(); 
+    showQuestionNumber();
 }
 
 function restart() {
@@ -169,6 +179,6 @@ function restart() {
 }
 
 function checkCurrentPercentage() {
-   let percentage = ((currentQuestion + 1) / questions.length) * 100
-   document.getElementById('progressBar').style.width = (`${percentage}%`)
+    let percentage = ((currentQuestion + 1) / questions.length) * 100
+    document.getElementById('progressBar').style.width = (`${percentage}%`)
 }

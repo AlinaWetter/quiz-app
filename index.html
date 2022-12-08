@@ -11,13 +11,13 @@
     <script src="script.js"></script>
 </head>
 
-<body onload="init()">
+<body onload="progressBar()" >
     <div class="progress">
         <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
       </div>
     <div class="card" >
 
-        <div class="task-bar">
+        <div  class="task-bar">
             <img src="./img/logo.png">
             <div class="task-bar-child">
                 <div>Quiz 1</div>
@@ -27,7 +27,17 @@
             </div>
 
         </div>
-        <div class="card-body" id="card">
+
+        <div class="card-body"  id="startingPage">
+            <img class="background-img" src="./img/brainbg.jpg">
+            <span class="start-span">
+                Welcome to the Awesome Harry Potter Quiz!
+            </span>
+            <button onclick="init()" class="btn btn-primary">Starten</button>
+            
+        </div>
+
+        <div class="card-body" id="card" style="display: none">
             <h5 class="card-title" id="questiontext">Card title</h5>
             <div class="card-answers">
                 <div class="answer-card"onclick="answer('answer_1'); checkCurrentPercentage();" >
@@ -57,10 +67,10 @@
                 Your Score <b id="right-answers">.</b>/<b id="all-questions-end">.</b>
             </span>
             <button onclick="restart()" class="btn btn-primary">Nochmal versuchen</button>
-            
+            <img id="trophy" class="trophy" src="./img/tropy.png" style="display: none">
         </div>
     </div>
-    <img id="trophy" class="trophy" src="./img/tropy.png" style="display: none">
+    
 </body>
 
 </html>
