@@ -8,42 +8,59 @@
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="srcipt.js"></script>
+    <script src="script.js"></script>
 </head>
 
-<body>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="./img/questionmark.png" class="img-fluid  sizing" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <div class="card mb-3">
-                <div class="card-body">
-                  ...
-                </div>
-              </div>
-              <div class="card mb-3">
-                <div class="card-body">
-                  ...
-                </div>
-              </div>
-              <div class="card mb-3">
-                <div class="card-body">
-                  ...
-                </div>
-              </div>
-              <div class="card mb-3">
-                <div class="card-body">
-                  ...
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+<body onload="init()">
+    <div class="progress">
+        <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
       </div>
+    <div class="card" >
+
+        <div class="task-bar">
+            <img src="./img/logo.png">
+            <div class="task-bar-child">
+                <div>Quiz 1</div>
+                <div>Quiz 2</div>
+                <div>Quiz 3</div>
+                <div>Quiz 4</div>
+            </div>
+
+        </div>
+        <div class="card-body" id="card">
+            <h5 class="card-title" id="questiontext">Card title</h5>
+            <div class="card-answers">
+                <div class="answer-card"onclick="answer('answer_1'); checkCurrentPercentage();" >
+                    <span id="answer_1" >
+                    </span>
+                </div>
+                <div class="answer-card" onclick="answer('answer_2'); checkCurrentPercentage();">
+                    <span id="answer_2">
+                    </span>
+                </div>
+                <div class="answer-card" onclick="answer('answer_3'); checkCurrentPercentage();">   
+                    <span id="answer_3" >
+                    </span>
+                </div>
+            </div>
+            <div class="question-footer">
+                <span>
+                    <b id="numberOfQuestion">.</b> von <b id="all-questions">.</b> Fragen
+                </span>
+                <button onclick="nextQuestion()" class="btn-next btn btn-primary" id="nextButton" disabled>Next</button>
+            </div>
+
+        </div>
+        <div class="card-body" style="display: none" id="endPicture">
+            <img src="./img/brain result.png">
+            <span>
+                Your Score <b id="right-answers">.</b>/<b id="all-questions-end">.</b>
+            </span>
+            <button onclick="restart()" class="btn btn-primary">Nochmal versuchen</button>
+            
+        </div>
+    </div>
+    <img id="trophy" class="trophy" src="./img/tropy.png" style="display: none">
 </body>
 
 </html>
